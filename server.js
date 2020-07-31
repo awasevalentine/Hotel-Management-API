@@ -8,6 +8,14 @@ const reservationRoute = require('./Route_folder/reservation_details');
 
 const app = express();
 const port =process.env.PORT ||3000;
+if (process.env.NODE_ENV === 'production') {
+    //set static folder
+    app.use(express.static(__dirname + '/dist/Hotel-Management'));
+
+    app.get('*', (req, res) => {
+        res.sendFile(path.resolve(__dirname, 'dist', 'Hotel-Management', 'index.html'));
+    });
+}
 var me = mongodb().then(data=>{
     console.log(data);
 });
