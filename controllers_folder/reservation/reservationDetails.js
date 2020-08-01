@@ -1,3 +1,4 @@
+require('dotenv').config();
 const ReservationModel = require('../../model_folder/db_models/reservation_details');
 const nodemailer = require('nodemailer');
 const Password = require('../../git-ignore-files/pasword');
@@ -31,8 +32,8 @@ reservation = (req,res)=>{
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
                     auth:{
-                        user: Email,
-                        pass: Password
+                        user: process.env.EMAIL,
+                        pass: process.env.PASSWORD
                     }
                 });
                 
