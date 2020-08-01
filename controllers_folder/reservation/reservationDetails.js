@@ -1,8 +1,6 @@
 require('dotenv').config();
 const ReservationModel = require('../../model_folder/db_models/reservation_details');
 const nodemailer = require('nodemailer');
-const Password = require('../../git-ignore-files/pasword');
-const Email = require('../../git-ignore-files/emailAddress');
 
 
 
