@@ -6,11 +6,16 @@ module.exports =function() {
     
 return new Promise((resolve, reject)=>{
     try{
-        db = mongoose.connect(process.env.MONGODB_URL || dbUri , (err)=>{
-            if(err){
-                throw new Error(`failed to connect to db`);
-            }
-        });
+        if(process.env.NODE_ENV == 'production'){
+            db = mongoose.connect(process.env.MONGODB_URL);
+        } else {
+            db = mongoose.connect(dbUri , (err)=>{
+                if(err){
+                    throw new Error(`failed to connect to db`);
+                }
+            });
+        }
+       
     } catch(err) {
         reject(err);
     }
