@@ -6,7 +6,7 @@ module.exports =function() {
     
 return new Promise((resolve, reject)=>{
     try{
-        db = mongoose.connect(process.env.MONGODB_URL, (err)=>{
+        db = mongoose.connect(process.env.MONGODB_URL || dbUri , (err)=>{
             if(err){
                 throw new Error(`failed to connect to db`);
             }
