@@ -1,3 +1,4 @@
+require('dotenv').config();
 const mongoose = require('mongoose');
 
 const dbUri = 'mongodb://localhost/Hotel_Management_db';
@@ -5,7 +6,7 @@ module.exports =function() {
     
 return new Promise((resolve, reject)=>{
     try{
-        db = mongoose.connect(process.env.MONGODB_URL || dbUri,(err)=>{
+        db = mongoose.connect(process.env.MONGODB_URL, (err)=>{
             if(err){
                 throw new Error(`failed to connect to db`);
             }
