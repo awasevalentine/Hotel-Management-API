@@ -22,8 +22,7 @@ var me = mongodb().then(data=>{
 app.use(bodyparser.urlencoded({extended: true}));
 app.use(express.json());
 app.use(cors({origin: '*'}));
-    app.use(morgan('dev'));
-
+app.use(morgan('dev'));
 
 app.use('/api', reservationRoute);
 
