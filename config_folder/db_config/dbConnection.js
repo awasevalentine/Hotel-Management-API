@@ -5,20 +5,19 @@ const dbUri = 'mongodb://localhost/Hotel_Management_db';
 module.exports =function() {
     
 return new Promise((resolve, reject)=>{
-    try{
-        if(process.env.NODE_ENV == 'production'){
-            db = mongoose.connect(process.env.MONGODB_URL);
-        } else {
-            db = mongoose.connect(dbUri , (err)=>{
+            db = mongoose.connect(process.env.MONGODB_URL , (err)=>{
                 if(err){
-                    throw new Error(`failed to connect to db`);
+                    try {
+
+                    }  catch(err) {
+                        throw new Error(`failed to connect to db! Error reason -> `,err);
+                        reject(err);
+                    }
+                    
+                   
                 }
             });
-        }
        
-    } catch(err) {
-        reject(err);
-    }
     
     mongoose.connection.on('connected', (err)=>{
     if(err){
