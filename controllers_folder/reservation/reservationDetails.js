@@ -29,6 +29,7 @@ reservation = (req,res)=>{
                 
                 const transporter = nodemailer.createTransport({
                     host: 'smtp.gmail.com',
+                    Port: 465,
                     auth:{
                         user: process.env.EMAIL,
                         pass: process.env.PASSWORD
