@@ -10,10 +10,10 @@ const app = express();
 const port =process.env.PORT ||3000;
 if (process.env.NODE_ENV === 'production') {
     //set static folder
-    app.use(express.static(__dirname + '/dist/Hotel-Management'));
+    app.use(express.static(__dirname + '/dist/Hotel-Management-System'));
 
     app.get('*', (req, res) => {
-        res.sendFile(path.resolve(__dirname, 'dist', 'Hotel-Management', 'index.html'));
+        res.sendFile(path.resolve(__dirname, 'dist', 'Hotel-Management-System', 'index.html'));
     });
 }
 var me = mongodb().then(data=>{
